@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    localStorage.setItem('theme', theme);
-    const localTheme = localStorage.getItem('theme');
-    document.querySelector('html').setAttribute('data-theme', localTheme);
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
 
   const handleToggle = (e) => {
@@ -17,6 +18,7 @@ const Navbar = () => {
       setTheme("light");
     }
   };
+
   return (
     <div className="navbar bg-base-100 shadow-lg px-4 fixed z-10">
       <div className="flex-1">
@@ -26,15 +28,33 @@ const Navbar = () => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 font-bold">
-          <li className="text-primary">
+          <NavLink to="/" className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active text-red-500 underline"
+                        : isPending
+                        ? "pending"
+                        : "text-primary"
+                    }><li>
             <a>Home</a>
-          </li>
-          <li>
+          </li></NavLink>
+          <NavLink to="/blogs" className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active text-red-500 underline"
+                        : isPending
+                        ? "pending"
+                        : "text-primary"
+                    }><li>
             <a>Blogs</a>
-          </li>
-          <li>
+          </li></NavLink>
+          <NavLink to="/bookmarks" className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active text-red-500 underline"
+                        : isPending
+                        ? "pending"
+                        : "text-primary"
+                    }><li>
             <a>Bookmarks</a>
-          </li>
+          </li></NavLink>
         </ul>
         <label className="cursor-pointer grid place-items-center">
           <input
