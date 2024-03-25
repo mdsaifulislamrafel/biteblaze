@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-lg px-4 fixed z-10">
+    <div className="navbar bg-base-100 shadow-lg px-4 sm:px-8 fixed z-10">
       <div className="flex-1">
         <a className="btn btn-ghost text-2xl gap-0 text-secondary normal-case">
           Byte<span className="text-primary">Blaze</span>
@@ -29,32 +29,32 @@ const Navbar = () => {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 font-bold">
           <NavLink to="/" className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active text-red-500 underline"
-                        : isPending
-                        ? "pending"
-                        : "text-primary"
-                    }><li>
-            <a>Home</a>
-          </li></NavLink>
+            isActive
+              ? "active text-red-500 underline"
+              : isPending
+                ? "pending"
+                : "text-primary"
+          }><li>
+              <a>Home</a>
+            </li></NavLink>
           <NavLink to="/blogs" className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active text-red-500 underline"
-                        : isPending
-                        ? "pending"
-                        : "text-primary"
-                    }><li>
-            <a>Blogs</a>
-          </li></NavLink>
+            isActive
+              ? "active text-red-500 underline"
+              : isPending
+                ? "pending"
+                : "text-primary"
+          }><li>
+              <a>Blogs</a>
+            </li></NavLink>
           <NavLink to="/bookmarks" className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active text-red-500 underline"
-                        : isPending
-                        ? "pending"
-                        : "text-primary"
-                    }><li>
-            <a>Bookmarks</a>
-          </li></NavLink>
+            isActive
+              ? "active text-red-500 underline"
+              : isPending
+                ? "pending"
+                : "text-primary"
+          }><li>
+              <a>Bookmarks</a>
+            </li></NavLink>
         </ul>
         <label className="cursor-pointer grid place-items-center">
           <input
